@@ -12,15 +12,16 @@ public class FridgeModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="fridge_model_id")
     private Long id;
+    @Column(unique = true)
     private String fridge_name;
     private Long fridge_cost;
 
-    //
+    @ManyToOne
+    @JoinColumn(name="client_model_id" , nullable = false)
+    private ClientModel clientModel;
+    //private Long client_model_id;
 
-    @OneToMany(mappedBy = "fridgeModel", cascade = CascadeType.ALL)
-    private List<ClientModel> clientModel;
 
     public FridgeModel() {
 
@@ -48,5 +49,13 @@ public class FridgeModel {
 
     public void setFridge_cost(Long fridge_cost) {
         this.fridge_cost = fridge_cost;
+    }
+
+    public ClientModel getClientModel() {
+        return clientModel;
+    }
+
+    public void setClientModel(ClientModel clientModel) {
+        this.clientModel = clientModel;
     }
 }

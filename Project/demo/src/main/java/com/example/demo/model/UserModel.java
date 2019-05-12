@@ -12,15 +12,15 @@ public class UserModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="user_model_id")
     private Long id;
+    @Column(unique = true)
     private String user_name;
     private Long user_cost;
 
-    //
-
-    @OneToMany(mappedBy = "userModel", cascade = CascadeType.ALL)
-    private List<ClientModel> clientModel;
+    @ManyToOne
+    @JoinColumn(name="client_model_id" , nullable = false)
+    private ClientModel clientModel;
+    //private Long client_model_id;
 
     public UserModel() {
 
@@ -48,5 +48,13 @@ public class UserModel {
 
     public void setUser_cost(Long user_cost) {
         this.user_cost = user_cost;
+    }
+
+    public ClientModel getClientModel() {
+        return clientModel;
+    }
+
+    public void setClientModel(ClientModel clientModel) {
+        this.clientModel = clientModel;
     }
 }

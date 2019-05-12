@@ -4,6 +4,7 @@ package com.example.demo.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 //@Data
 @Entity
@@ -12,14 +13,15 @@ public class OrganizationModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "organization_model_id")
     private Long id;
+    @Column(unique = true)
     private String organization_name;
 
-    @ManyToOne
-    @JoinColumn(name = "client_model_id", nullable = false)
-    private ClientModel clientModel;
-    //@NotNull
-    //private Long client_model_id;
+    //
+
+    @OneToMany (mappedBy = "organizationModel", cascade = CascadeType.ALL)
+    private List<ClientModel> clientModel;
 
     public OrganizationModel() {
 
@@ -41,11 +43,11 @@ public class OrganizationModel {
         this.organization_name = organization_name;
     }
 
-    public ClientModel getClientModel() {
+    public List<ClientModel> getClientModel() {
         return clientModel;
     }
 
-    public void setClientModel(ClientModel clientModel) {
+    public void setClientModel(List<ClientModel> clientModel) {
         this.clientModel = clientModel;
     }
 }

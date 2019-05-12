@@ -20,31 +20,30 @@ import java.util.List;
 
 public class ClientModel {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
    // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "client_model_id_seq")
    // @SequenceGenerator(name = "client_model_id_seq", sequenceName = "client_model_id_seq", allocationSize = 1)
-    @Column(name="client_model_id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "client_model_id")
     private Long id;
+    @Column(unique = true)
     private String client_name;
 
    // @NotNull
-   @ManyToOne
-   @JoinColumn(name = "user_model_id", nullable = false)
-   private UserModel userModel;
-    //private Long user_model_id;
-   // @NotNull
-   @ManyToOne
-   @JoinColumn(name = "fridge_model_id", nullable = false)
-   private FridgeModel fridgeModel;
-    //private Long fridge_model_id;
+    //private Long organization_model_id;
+    @ManyToOne
+    @JoinColumn(name="organization_model_id" , nullable = false)
+    private OrganizationModel organizationModel;
 
     private Long client_cost;
 
     //
 
-    @OneToMany(mappedBy = "clientModel", cascade = CascadeType.ALL)
-    private List<OrganizationModel> organizationModel;
+    @OneToMany (mappedBy = "clientModel", cascade = CascadeType.ALL)
+    private List<FridgeModel> fridgeModel;
+
+    @OneToMany (mappedBy = "clientModel", cascade = CascadeType.ALL)
+    private List<UserModel> userModel;
 
     public ClientModel() {
 
@@ -66,6 +65,14 @@ public class ClientModel {
         this.client_name = client_name;
     }
 
+    public OrganizationModel getOrganizationModel() {
+        return organizationModel;
+    }
+
+    public void setOrganizationModel(OrganizationModel organizationModel) {
+        this.organizationModel = organizationModel;
+    }
+
     public Long getClient_cost() {
         return client_cost;
     }
@@ -74,27 +81,19 @@ public class ClientModel {
         this.client_cost = client_cost;
     }
 
-    public UserModel getUserModel() {
-        return userModel;
-    }
-
-    public void setUserModel(UserModel userModel) {
-        this.userModel = userModel;
-    }
-
-    public List<OrganizationModel> getOrganizationModel() {
-        return organizationModel;
-    }
-
-    public void setOrganizationModel(List<OrganizationModel> organizationModel) {
-        this.organizationModel = organizationModel;
-    }
-
-    public FridgeModel getFridgeModel() {
+    public List<FridgeModel> getFridgeModel() {
         return fridgeModel;
     }
 
-    public void setFridgeModel(FridgeModel fridgeModel) {
+    public void setFridgeModel(List<FridgeModel> fridgeModel) {
         this.fridgeModel = fridgeModel;
+    }
+
+    public List<UserModel> getUserModel() {
+        return userModel;
+    }
+
+    public void setUserModel(List<UserModel> userModel) {
+        this.userModel = userModel;
     }
 }
