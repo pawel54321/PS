@@ -3,6 +3,7 @@ package com.example.demo.model;
 //import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 //@Data
 @Entity
@@ -11,9 +12,15 @@ public class FridgeModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="fridge_model_id")
     private Long id;
     private String fridge_name;
     private Long fridge_cost;
+
+    //
+
+    @OneToMany(mappedBy = "fridgeModel", cascade = CascadeType.ALL)
+    private List<ClientModel> clientModel;
 
     public FridgeModel() {
 

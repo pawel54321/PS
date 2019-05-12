@@ -15,8 +15,11 @@ public class OrganizationModel {
     private Long id;
     private String organization_name;
 
+    @ManyToOne
+    @JoinColumn(name = "client_model_id", nullable = false)
+    private ClientModel clientModel;
     //@NotNull
-    private Long client_model_id;
+    //private Long client_model_id;
 
     public OrganizationModel() {
 
@@ -38,11 +41,11 @@ public class OrganizationModel {
         this.organization_name = organization_name;
     }
 
-    public Long getClient_model_id() {
-        return client_model_id;
+    public ClientModel getClientModel() {
+        return clientModel;
     }
 
-    public void setClient_model_id(Long client_model_id) {
-        this.client_model_id = client_model_id;
+    public void setClientModel(ClientModel clientModel) {
+        this.clientModel = clientModel;
     }
 }

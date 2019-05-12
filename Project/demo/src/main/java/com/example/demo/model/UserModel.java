@@ -3,6 +3,7 @@ package com.example.demo.model;
 //import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 //@Data
 @Entity
@@ -11,9 +12,15 @@ public class UserModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="user_model_id")
     private Long id;
     private String user_name;
     private Long user_cost;
+
+    //
+
+    @OneToMany(mappedBy = "userModel", cascade = CascadeType.ALL)
+    private List<ClientModel> clientModel;
 
     public UserModel() {
 
