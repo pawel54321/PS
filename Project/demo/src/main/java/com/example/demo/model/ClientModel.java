@@ -27,11 +27,11 @@ public class ClientModel {
     private Long client_cost;
 
     @OneToMany ()
-    @JoinColumn(name = "fridge_id") // nie musi byc taka sama nazwa jak w bazie
+    @JoinColumn(name = "client_id") // nie musi byc taka sama nazwa jak w bazie
     private List<FridgeModel> FridgesModel;
 
     @OneToMany ()
-    @JoinColumn(name = "user_id") // nie musi byc taka sama nazwa jak w bazie
+    @JoinColumn(name = "client_id") // nie musi byc taka sama nazwa jak w bazie
     private List<UserModel> UsersModel;
 
     public ClientModel() {
