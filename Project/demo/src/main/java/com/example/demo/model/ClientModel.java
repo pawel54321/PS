@@ -62,5 +62,21 @@ public class ClientModel {
         this.client_cost = client_cost;
     }
 
+    public List<FridgeModel> getFridgesModel() {
+        return FridgesModel;
+    }
+
+    public void setFridgesModel(List<FridgeModel> fridgesModel) {
+        FridgesModel = fridgesModel;
+    }
+
+    public List<UserModel> getUsersModel() {
+        return UsersModel;
+    }
+
+    public void setUsersModel(List<UserModel> usersModel) {
+        UsersModel = usersModel;
+    }
+
 
 }
