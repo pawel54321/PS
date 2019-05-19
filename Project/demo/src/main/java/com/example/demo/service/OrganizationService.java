@@ -25,7 +25,9 @@ public class OrganizationService {
     }
 
     public OrganizationModel insertNewOrganization(OrganizationModel organizationModel) {
-        return organizationRepository.save(organizationModel);
+
+        //organizationModel.getClientsModel().forEach(client -> client.setOrganizationModel(organizationModel));
+        return organizationRepository.saveAndFlush(organizationModel);
     }
 
     @Transactional

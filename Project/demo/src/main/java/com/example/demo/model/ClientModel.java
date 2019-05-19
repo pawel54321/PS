@@ -6,6 +6,7 @@ package com.example.demo.model;
 //import lombok.NoArgsConstructor;
 
 import com.fasterxml.jackson.annotation.JsonEnumDefaultValue;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -31,6 +32,7 @@ public class ClientModel {
 
    // @NotNull
     //private Long organization_model_id;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="organization_model_id" , nullable = false)
     private OrganizationModel organizationModel;

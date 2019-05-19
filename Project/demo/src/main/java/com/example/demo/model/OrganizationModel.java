@@ -20,8 +20,8 @@ public class OrganizationModel {
 
     //
 
-    @OneToMany (mappedBy = "organizationModel", cascade = CascadeType.ALL)
-    private List<ClientModel> clientModel;
+    @OneToMany (mappedBy = "organizationModel",fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.ALL)
+    private List<ClientModel> clientsModel;
 
     public OrganizationModel() {
 
@@ -43,11 +43,11 @@ public class OrganizationModel {
         this.organization_name = organization_name;
     }
 
-    public List<ClientModel> getClientModel() {
-        return clientModel;
+    public List<ClientModel> getClientsModel() {
+        return clientsModel;
     }
 
-    public void setClientModel(List<ClientModel> clientModel) {
-        this.clientModel = clientModel;
+    public void setClientsModel(List<ClientModel> clientsModel) {
+        this.clientsModel = clientsModel;
     }
 }
