@@ -18,34 +18,14 @@ import java.util.List;
 //@NoArgsConstructor
 @Entity
 @Table(name = "client_model")
-
 public class ClientModel {
 
-   // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "client_model_id_seq")
-   // @SequenceGenerator(name = "client_model_id_seq", sequenceName = "client_model_id_seq", allocationSize = 1)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "client_model_id")
     private Long id;
-    @Column(unique = true)
     private String client_name;
-
-   // @NotNull
-    //private Long organization_model_id;
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name="organization_model_id" , nullable = false)
-    private OrganizationModel organizationModel;
-
     private Long client_cost;
 
-    //
-
-   // @OneToMany (mappedBy = "clientModel", cascade = CascadeType.ALL)
-   // private List<FridgeModel> fridgeModel;
-
-  //  @OneToMany (mappedBy = "clientModel", cascade = CascadeType.ALL)
-   // private List<UserModel> userModel;
 
     public ClientModel() {
 
@@ -67,13 +47,13 @@ public class ClientModel {
         this.client_name = client_name;
     }
 
-    public OrganizationModel getOrganizationModel() {
-        return organizationModel;
-    }
-
-    public void setOrganizationModel(OrganizationModel organizationModel) {
-        this.organizationModel = organizationModel;
-    }
+//    public OrganizationModel getOrganizationModel() {
+//        return organizationModel;
+//    }
+//
+//    public void setOrganizationModel(OrganizationModel organizationModel) {
+//        this.organizationModel = organizationModel;
+//    }
 
     public Long getClient_cost() {
         return client_cost;

@@ -20,7 +20,8 @@ public class OrganizationModel {
 
     //
 
-    @OneToMany (mappedBy = "organizationModel",fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.ALL)
+    @OneToMany ()
+    @JoinColumn(name = "organizationId")
     private List<ClientModel> clientsModel;
 
     public OrganizationModel() {
