@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.OrganizationModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,8 +27,15 @@ public class ClientController {
     }
 
     @PostMapping("/")
-    public ClientModel insertNewClient(@RequestBody ClientModel clientModel) {
-        return clientService.insertNewClient(clientModel);
+    public ClientModel insertNewClient(@RequestBody ClientModel clientModel){ //}, @RequestBody OrganizationModel organizationModel) {
+
+        ClientModel client = new ClientModel();
+        client.setOrganizationModel(clientModel.getOrganizationModel());
+        client.setClient_cost(clientModel.getClient_cost());
+        client.setClient_name(clientModel.getClient_name());
+
+
+        return clientService.insertNewClient(client);
     }
 
     @PutMapping("/{id}")

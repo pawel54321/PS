@@ -41,11 +41,11 @@ public class ClientModel {
 
     //
 
-    @OneToMany (mappedBy = "clientModel", cascade = CascadeType.ALL)
-    private List<FridgeModel> fridgeModel;
+   // @OneToMany (mappedBy = "clientModel", cascade = CascadeType.ALL)
+   // private List<FridgeModel> fridgeModel;
 
-    @OneToMany (mappedBy = "clientModel", cascade = CascadeType.ALL)
-    private List<UserModel> userModel;
+  //  @OneToMany (mappedBy = "clientModel", cascade = CascadeType.ALL)
+   // private List<UserModel> userModel;
 
     public ClientModel() {
 
@@ -83,19 +83,5 @@ public class ClientModel {
         this.client_cost = client_cost;
     }
 
-    public List<FridgeModel> getFridgeModel() {
-        return fridgeModel;
-    }
 
-    public void setFridgeModel(List<FridgeModel> fridgeModel) {
-        this.fridgeModel = fridgeModel;
-    }
-
-    public List<UserModel> getUserModel() {
-        return userModel;
-    }
-
-    public void setUserModel(List<UserModel> userModel) {
-        this.userModel = userModel;
-    }
 }
