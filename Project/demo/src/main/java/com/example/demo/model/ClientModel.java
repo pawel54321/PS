@@ -26,6 +26,13 @@ public class ClientModel {
     private String client_name;
     private Long client_cost;
 
+    @OneToMany ()
+    @JoinColumn(name = "fridge_id") // nie musi byc taka sama nazwa jak w bazie
+    private List<FridgeModel> FridgesModel;
+
+    @OneToMany ()
+    @JoinColumn(name = "user_id") // nie musi byc taka sama nazwa jak w bazie
+    private List<UserModel> UsersModel;
 
     public ClientModel() {
 
@@ -46,14 +53,6 @@ public class ClientModel {
     public void setClient_name(String client_name) {
         this.client_name = client_name;
     }
-
-//    public OrganizationModel getOrganizationModel() {
-//        return organizationModel;
-//    }
-//
-//    public void setOrganizationModel(OrganizationModel organizationModel) {
-//        this.organizationModel = organizationModel;
-//    }
 
     public Long getClient_cost() {
         return client_cost;

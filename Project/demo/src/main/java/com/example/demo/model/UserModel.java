@@ -17,11 +17,6 @@ public class UserModel {
     private String user_name;
     private Long user_cost;
 
-    @ManyToOne
-    @JoinColumn(name="client_model_id" , nullable = false)
-    private ClientModel clientModel;
-    //private Long client_model_id;
-
     public UserModel() {
 
     }
@@ -50,11 +45,4 @@ public class UserModel {
         this.user_cost = user_cost;
     }
 
-    public ClientModel getClientModel() {
-        return clientModel;
-    }
-
-    public void setClientModel(ClientModel clientModel) {
-        this.clientModel = clientModel;
-    }
 }

@@ -21,7 +21,7 @@ public class OrganizationModel {
     //
 
     @OneToMany ()
-    @JoinColumn(name = "organizationId")
+    @JoinColumn(name = "organization_id") // nie musi byc taka sama nazwa jak w bazie
     private List<ClientModel> clientsModel;
 
     public OrganizationModel() {

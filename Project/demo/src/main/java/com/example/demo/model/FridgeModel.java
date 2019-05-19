@@ -17,12 +17,6 @@ public class FridgeModel {
     private String fridge_name;
     private Long fridge_cost;
 
-    @ManyToOne
-    @JoinColumn(name="client_model_id" , nullable = false)
-    private ClientModel clientModel;
-    //private Long client_model_id;
-
-
     public FridgeModel() {
 
     }
@@ -51,11 +45,4 @@ public class FridgeModel {
         this.fridge_cost = fridge_cost;
     }
 
-    public ClientModel getClientModel() {
-        return clientModel;
-    }
-
-    public void setClientModel(ClientModel clientModel) {
-        this.clientModel = clientModel;
-    }
 }
